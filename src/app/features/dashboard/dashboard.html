@@ -1,0 +1,53 @@
+
+<div class="dashboard-container">
+
+  <div class="dashboard-header">
+    <div>
+      <h1>Food Menu Dashboard</h1>
+      <p>Manage your restaurant food items</p>
+    </div>
+
+    <button class="refresh-btn" (click)="loadDashboard()">
+      Refresh
+    </button>
+  </div>
+
+  <div *ngIf="loading" class="message">
+    Loading dashboard...
+  </div>
+
+  <div *ngIf="errorMessage" class="error-message">
+    {{ errorMessage }}
+  </div>
+
+  <div class="stats-container">
+
+    <div class="stat-card total-card">
+      <div class="stat-icon">🍽️</div>
+      <h3>Total Food Items</h3>
+      <h2>{{ totalItems }}</h2>
+    </div>
+
+    <div class="stat-card available-card">
+      <div class="stat-icon">✅</div>
+      <h3>Available Items</h3>
+      <h2>{{ availableItems }}</h2>
+    </div>
+
+    <div class="stat-card unavailable-card">
+      <div class="stat-icon">❌</div>
+      <h3>Unavailable Items</h3>
+      <h2>{{ unavailableItems }}</h2>
+    </div>
+
+  </div>
+
+  <div class="welcome-section">
+    <h2>Welcome to Food Menu Management!</h2>
+    <p>
+      Manage your food menu, update prices and control
+      the availability of your food items easily.
+    </p>
+  </div>
+
+</div>

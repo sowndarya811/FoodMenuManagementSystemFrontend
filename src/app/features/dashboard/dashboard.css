@@ -1,0 +1,117 @@
+
+.dashboard-container {
+  padding: 30px;
+  min-height: 100vh;
+  background: #f5f7fb;
+  font-family: Arial, sans-serif;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 35px;
+}
+
+.dashboard-header h1 {
+  color: #263238;
+  margin-bottom: 8px;
+  font-size: 28px;
+}
+
+.dashboard-header p {
+  color: #777;
+  margin: 0;
+}
+
+.refresh-btn {
+  background: #e76f32;
+  color: white;
+  border: none;
+  padding: 12px 22px;
+  border-radius: 7px;
+  cursor: pointer;
+}
+
+.refresh-btn:hover {
+  background: #c95720;
+}
+
+.stats-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+.stat-card {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.07);
+  border-left: 5px solid #e76f32;
+}
+
+.stat-card h3 {
+  color: #555;
+  font-size: 16px;
+  margin-top: 15px;
+}
+
+.stat-card h2 {
+  font-size: 32px;
+  color: #263238;
+  margin-bottom: 0;
+}
+
+.stat-icon {
+  font-size: 30px;
+}
+
+.available-card {
+  border-left-color: #28a745;
+}
+
+.unavailable-card {
+  border-left-color: #dc3545;
+}
+
+.welcome-section {
+  margin-top: 35px;
+  padding: 30px;
+  background: white;
+  border-radius: 12px;
+}
+
+.welcome-section h2 {
+  color: #263238;
+}
+
+.welcome-section p {
+  color: #777;
+  line-height: 1.6;
+}
+
+.message {
+  padding: 12px;
+  color: #555;
+}
+
+.error-message {
+  background: #ffe5e5;
+  color: #b00020;
+  padding: 12px;
+  border-radius: 6px;
+  margin-bottom: 15px;
+}
+
+@media (max-width: 768px) {
+  .stats-container {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-header {
+    align-items: flex-start;
+    gap: 15px;
+    flex-direction: column;
+  }
+}

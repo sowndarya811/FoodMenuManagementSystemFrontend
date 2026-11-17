@@ -1,0 +1,138 @@
+
+.page-container {
+  min-height: 100vh;
+  padding: 35px 20px;
+  background: #f5f7fb;
+  font-family: Arial, sans-serif;
+}
+
+.form-card {
+  max-width: 650px;
+  margin: auto;
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.07);
+}
+
+.form-header {
+  margin-bottom: 25px;
+}
+
+.form-header h1 {
+  color: #263238;
+  margin-bottom: 8px;
+}
+
+.form-header p {
+  color: #777;
+  line-height: 1.5;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  color: #333;
+  font-weight: 600;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 12px;
+  border: 1px solid #d5d9df;
+  border-radius: 7px;
+  font-size: 14px;
+  outline: none;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: #e76f32;
+  box-shadow: 0 0 0 2px rgba(231, 111, 50, 0.12);
+}
+
+.form-group textarea {
+  resize: vertical;
+}
+
+.validation-error {
+  color: #d32f2f;
+  font-size: 12px;
+}
+
+.availability-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 20px 0;
+  color: #444;
+}
+
+.availability-group input {
+  width: 17px;
+  height: 17px;
+  accent-color: #e76f32;
+}
+
+.form-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 25px;
+}
+
+.submit-btn,
+.cancel-btn {
+  padding: 12px 20px;
+  border-radius: 7px;
+  font-size: 14px;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+}
+
+.submit-btn {
+  background: #e76f32;
+  color: white;
+  border: none;
+}
+
+.submit-btn:hover {
+  background: #c95720;
+}
+
+.submit-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.cancel-btn {
+  background: #e5e7eb;
+  color: #333;
+}
+
+.error-message {
+  background: #ffe5e5;
+  color: #b00020;
+  padding: 12px;
+  border-radius: 6px;
+  margin-top: 15px;
+}
+
+@media (max-width: 600px) {
+  .form-card {
+    padding: 20px;
+  }
+
+  .form-actions {
+    flex-direction: column;
+  }
+}

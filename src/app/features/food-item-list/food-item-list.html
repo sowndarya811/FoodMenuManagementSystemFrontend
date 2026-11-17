@@ -1,0 +1,131 @@
+
+<div class="page-container">
+
+  <div class="page-header">
+    <div>
+      <h1>Food Items</h1>
+      <p>View and manage your restaurant food menu</p>
+    </div>
+
+    <a routerLink="/add-food-item" class="add-btn">
+      + Add Food Item
+    </a>
+  </div>
+
+  <div class="filter-section">
+
+    <div class="filter-group">
+      <label for="category">Category</label>
+
+      <select
+        id="category"
+        [(ngModel)]="category"
+        (change)="applyFilters()">
+
+        <option value="">All Categories</option>
+        <option value="Snacks">Snacks</option>
+        <option value="Meals">Meals</option>
+        <option value="Drinks">Drinks</option>
+        <option value="Desserts">Desserts</option>
+      </select>
+    </div>
+
+    <label class="availability-filter">
+      <input
+        type="checkbox"
+        [(ngModel)]="availableOnly"
+        (change)="applyFilters()">
+
+      Available items only
+    </label>
+
+    <button class="clear-btn" (click)="clearFilters()">
+      Clear Filters
+    </button>
+
+  </div>
+
+  <div *ngIf="loading" class="info-message">
+    Loading food items...
+  </div>
+
+  <div *ngIf="errorMessage" class="error-message">
+    {{ errorMessage }}
+  </div>
+
+  <div *ngIf="successMessage" class="success-message">
+    {{ successMessage }}
+  </div>
+
+  <div class="table-container">
+
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Food Name</th>
+          <th>Category</th>
+          <th>Description</th>
+          <th>Price</th>
+          <th>Availability</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr *ngFor="let item of foodItems">
+
+          <td>{{ item.id }}</td>
+
+          <td class="food-name">
+            {{ item.name }}
+          </td>
+
+          <td>{{ item.category }}</td>
+
+          <td>{{ item.description || '-' }}</td>
+
+          <td>{{ item.price | currency:'INR':'symbol':'1.2-2' }}</td>
+
+          <td>
+            <span
+              class="status"
+              [class.available]="item.isAvailable"
+              [class.unavailable]="!item.isAvailable">
+
+              {{ item.isAvailable ? 'Available' : 'Unavailable' }}
+
+            </span>
+          </td>
+
+          <td class="action-buttons">
+
+            <a
+              [routerLink]="['/edit-food-item', item.id]"
+              class="edit-btn">
+              Edit
+            </a>
+
+            <button
+              class="delete-btn"
+              (click)="deleteFoodItem(item.id)">
+              Delete
+            </button>
+
+          </td>
+
+        </tr>
+
+        <tr *ngIf="!loading && foodItems.length === 0">
+          <td colspan="7" class="empty-message">
+            No food items found.
+          </td>
+        </tr>
+
+      </tbody>
+    </table>
+
+  </div>
+
+</div>
