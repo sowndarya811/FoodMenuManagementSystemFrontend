@@ -1,0 +1,86 @@
+
+<div class="page-container">
+
+  <div class="page-header">
+    <div>
+      <h1>Category Management</h1>
+      <p>Manage your restaurant food categories</p>
+    </div>
+
+    <a routerLink="/add-category" class="add-btn">
+      + Add Category
+    </a>
+  </div>
+
+  <div *ngIf="loading && categories.length === 0" class="info-message">
+  Loading categories...
+</div>
+
+  <div *ngIf="errorMessage" class="error-message">
+    {{ errorMessage }}
+  </div>
+
+  <div *ngIf="successMessage" class="success-message">
+    {{ successMessage }}
+  </div>
+
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Category Name</th>
+          <th>Description</th>
+          <th>Status</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let category of categories">
+
+          <td>{{ category.id }}</td>
+
+          <td class="category-name">
+            {{ category.name }}
+          </td>
+
+          <td>{{ category.description || '-' }}</td>
+
+          <td>
+            <span
+              class="status"
+              [class.active]="category.isActive"
+              [class.inactive]="!category.isActive">
+
+              {{ category.isActive ? 'Active' : 'Inactive' }}
+
+            </span>
+          </td>
+
+          <td class="action-buttons">
+            <a
+              [routerLink]="['/edit-category', category.id]"
+              class="edit-btn">
+              Edit
+            </a>
+
+            <button
+              class="delete-btn"
+              (click)="deleteCategory(category.id)">
+              Delete
+            </button>
+          </td>
+
+        </tr>
+
+        <tr *ngIf="!loading && categories.length === 0">
+          <td colspan="5" class="empty-message">
+            No categories found.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>

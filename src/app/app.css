@@ -1,20 +1,26 @@
 
+/* Global Styles */
 * {
   box-sizing: border-box;
 }
 
 body {
   margin: 0;
+  padding: 0;
   font-family: Arial, sans-serif;
 }
 
+/* Main Layout */
 .app-layout {
   display: flex;
   min-height: 100vh;
+  background: #f4f6fb;
 }
 
+/* Sidebar */
 .sidebar {
   width: 245px;
+  min-width: 245px;
   min-height: 100vh;
   background: #263238;
   color: white;
@@ -24,6 +30,7 @@ body {
   flex-shrink: 0;
 }
 
+/* Brand */
 .brand {
   display: flex;
   align-items: center;
@@ -35,33 +42,62 @@ body {
 .brand h2 {
   font-size: 21px;
   margin: 0;
+  color: white;
 }
 
 .brand-icon {
   font-size: 28px;
 }
 
+/* Navigation */
 .sidebar nav {
   display: flex;
   flex-direction: column;
   gap: 12px;
 }
 
+.nav-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.nav-heading {
+  font-size: 11px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  color: #aab4ba;
+  padding: 0 12px;
+  margin: 8px 0 2px;
+}
+
+/* Navigation Links */
 .sidebar nav a {
   color: #dce3e7;
   padding: 14px;
   text-decoration: none;
   border-radius: 7px;
   display: flex;
+  align-items: center;
   gap: 12px;
+  font-size: 15px;
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
+/* Hover and Active */
 .sidebar nav a:hover,
 .sidebar nav a.active {
   background: #e76f32;
   color: white;
 }
 
+/* Navigation Icons */
+.sidebar nav a span {
+  font-size: 18px;
+}
+
+/* Sidebar Footer */
 .sidebar-footer {
   margin-top: auto;
   color: #aab4ba;
@@ -69,23 +105,50 @@ body {
   padding: 12px;
 }
 
+/* Main Content */
 .main-content {
   flex: 1;
   min-width: 0;
+  overflow-x: auto;
+  padding: 0;
 }
 
+/* Responsive Design */
 @media (max-width: 650px) {
+
   .sidebar {
     width: 150px;
+    min-width: 150px;
     padding: 12px 8px;
+  }
+
+  .brand {
+    gap: 6px;
+    padding: 8px;
+    margin-bottom: 20px;
   }
 
   .brand h2 {
     font-size: 15px;
   }
 
+  .brand-icon {
+    font-size: 21px;
+  }
+
   .sidebar nav a {
     font-size: 12px;
     padding: 10px;
+    gap: 7px;
+  }
+
+  .nav-heading {
+    font-size: 9px;
+    padding: 0 7px;
+  }
+
+  .sidebar-footer {
+    font-size: 10px;
+    padding: 8px;
   }
 }

@@ -1,33 +1,74 @@
 
 <div class="app-layout">
 
+  <!-- Sidebar -->
   <aside class="sidebar">
 
+    <!-- Brand -->
     <div class="brand">
       <span class="brand-icon">🍽️</span>
       <h2>Food Menu</h2>
     </div>
 
+    <!-- Navigation -->
     <nav>
-      <a routerLink="/dashboard" routerLinkActive="active">
-        <span>📊</span> Dashboard
+
+      <!-- Dashboard -->
+      <a
+        routerLink="/dashboard"
+        routerLinkActive="active">
+        <span>📊</span>
+        Dashboard
       </a>
 
-      <a routerLink="/food-items" routerLinkActive="active">
-        <span>🍔</span> Food Items
-      </a>
+      <!-- Module 1: Food Management -->
+      <div class="nav-section">
+        <p class="nav-heading">FOOD MANAGEMENT</p>
 
-      <a routerLink="/add-food-item" routerLinkActive="active">
-        <span>➕</span> Add Food
-      </a>
+        <a
+          routerLink="/food-items"
+          routerLinkActive="active">
+          <span>🍔</span>
+          Food Items
+        </a>
+
+        <a
+          routerLink="/add-food-item"
+          routerLinkActive="active">
+          <span>➕</span>
+          Add Food
+        </a>
+      </div>
+
+      <!-- Module 2: Category Management -->
+      <div class="nav-section">
+        <p class="nav-heading">CATEGORY MANAGEMENT</p>
+
+        <a
+          routerLink="/categories"
+          routerLinkActive="active">
+          <span>📂</span>
+          Categories
+        </a>
+
+        <a
+          routerLink="/add-category"
+          routerLinkActive="active">
+          <span>➕</span>
+          Add Category
+        </a>
+      </div>
+
     </nav>
 
+    <!-- Footer -->
     <div class="sidebar-footer">
       Food Menu Management
     </div>
 
   </aside>
 
+  <!-- Main Content -->
   <main class="main-content">
     <router-outlet></router-outlet>
   </main>

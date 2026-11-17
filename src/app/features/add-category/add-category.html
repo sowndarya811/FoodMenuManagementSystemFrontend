@@ -1,0 +1,71 @@
+
+<div class="form-page">
+
+  <div class="form-card">
+
+    <h1>Add Category</h1>
+    <p class="subtitle">Enter the details of your new food category</p>
+
+    <div *ngIf="errorMessage" class="error-message">
+      {{ errorMessage }}
+    </div>
+
+    <form [formGroup]="categoryForm" (ngSubmit)="submitCategory()">
+
+      <div class="form-group">
+        <label>Category Name *</label>
+
+        <input
+          type="text"
+          formControlName="name"
+          placeholder="Enter category name">
+
+        <small class="validation"
+          *ngIf="categoryForm.controls.name.touched &&
+                 categoryForm.controls.name.hasError('required')">
+          Category name is required.
+        </small>
+
+        <small class="validation"
+          *ngIf="categoryForm.controls.name.touched &&
+                 categoryForm.controls.name.hasError('minlength')">
+          Minimum 2 characters required.
+        </small>
+
+        <small class="validation"
+          *ngIf="categoryForm.controls.name.touched &&
+                 categoryForm.controls.name.hasError('maxlength')">
+          Maximum 100 characters allowed.
+        </small>
+      </div>
+
+      <div class="form-group">
+        <label>Description</label>
+
+        <textarea
+          formControlName="description"
+          rows="4"
+          placeholder="Enter category description">
+        </textarea>
+
+        <small class="validation"
+          *ngIf="categoryForm.controls.description.hasError('maxlength')">
+          Maximum 250 characters allowed.
+        </small>
+      </div>
+
+      <div class="form-actions">
+        <button type="submit" [disabled]="loading">
+          {{ loading ? 'Saving...' : 'Add Category' }}
+        </button>
+
+        <a routerLink="/categories" class="cancel-btn">
+          Cancel
+        </a>
+      </div>
+
+    </form>
+
+  </div>
+
+</div>
